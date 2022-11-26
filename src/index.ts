@@ -1,6 +1,7 @@
 import { join } from "path";
 
 import autoLoad from "@fastify/autoload";
+import postgres from "@fastify/postgres";
 import { TypeBoxTypeProvider } from "@fastify/type-provider-typebox";
 import fastify, { RouteOptions } from "fastify";
 
@@ -12,6 +13,16 @@ void server.register(autoLoad, {
 	dir: join(__dirname, "routes"),
 	dirNameRoutePrefix: false,
 	options: { prefix: "/api" },
+});
+
+const host = process.env.POSTGRES_HOST;
+const port = 5432;
+const database = process.env.POSTGRES_DB;
+const user = process.env.POSTGRES_USER;
+const password = process.env.POSTGRES_PASSWORD;
+
+void server.register(postgres, {
+	connectionString: `postgres://${user}:${password}@${host}:${port}/${database}`,
 });
 
 server.addHook("onRoute", (route) => {

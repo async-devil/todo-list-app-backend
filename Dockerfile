@@ -10,4 +10,6 @@ COPY . .
 EXPOSE 8080
 
 RUN yarn build
-CMD ["yarn", "start"]
+
+RUN chmod +x ./scripts/start.sh
+CMD ["/bin/sh", "./scripts/start.sh"]
