@@ -1,43 +1,68 @@
-# Fastify typescript template
+# TODO List App Backend
 
-## Run docker image:
+This is [TODO list application](https://github.com/async-devil/todo-list-app-template) backend.
 
-Provides ready to go docker compose config
+## Installations and executions
 
-```bash
-$ sudo docker compose build
-$ sudo docker compose up
-```
-
-## Local installation:
+### Run docker compose
 
 ```bash
-$ yarn instal
+sudo docker compose build
+sudo docker compose up
 ```
 
-## Local start:
+### Run postgres docker image
 
 ```bash
-$ yarn build
-$ yarn start
+sudo docker pull postgres:15.1-alpine # To download postgres image
+
+# Default database - postgres, default user - postgres
+sudo docker run -p 5432:5432 \
+  --name postgres \
+  --env-file .env \
+  -d postgres:15.1-alpine
+
+sudo docker rm postgres # To delete container
 ```
 
-## Test:
+### Local installation
 
 ```bash
-$ yarn test
-$ yarn test:cov
+yarn instal
 ```
 
-## Access at:
+### Local start
+
+```bash
+yarn build
+yarn start
+```
+
+### Test
+
+```bash
+yarn test
+yarn test:cov
+```
+
+## Access at
 
 `http://localhost:8080/api/<method>` or `http://127.0.0.1:8080/api/<method>`
 
-## Api routes:
+## Api routes
 
-- POST `/sandwiches`
-- GET `/sandwiches/:id`
+- POST `/todos`
+- GET `/todos/:id`
+- GET `/todos`
+- PUT `/todos/:id`
+- DELETE `/todos/:id`
 
-## Description
+## Architecture
 
-This is ready to use fastify template using typescript, typebox validation and auto registrable routes
+### Component diagram
+
+![architecture](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/async-devil/todo-list-app-template/master/docs/architecture.puml)
+
+### Sequence diagram
+
+![sequences-backend](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/async-devil/todo-list-app-template/master/docs/sequences-backend.puml)
