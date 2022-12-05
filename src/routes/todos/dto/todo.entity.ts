@@ -1,4 +1,4 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
 
 export const TodoEntity = Type.Object({
 	id: Type.Integer({ minimum: 1 }),
@@ -6,3 +6,5 @@ export const TodoEntity = Type.Object({
 	completed: Type.Boolean(),
 	create_date: Type.Integer({ minimum: 0 }),
 });
+
+export type TodoEntityType = Static<typeof TodoEntity>;
