@@ -14,15 +14,7 @@ sudo docker compose up
 ### Run postgres docker image
 
 ```bash
-sudo docker pull postgres:15.1-alpine # To download postgres image
-
-# Default database - postgres, default user - postgres
-sudo docker run -p 5432:5432 \
-  --name postgres \
-  --env-file .env \
-  -d postgres:15.1-alpine
-
-sudo docker rm postgres # To delete container
+sudo docker compose up postgres
 ```
 
 ### Local installation
@@ -45,6 +37,16 @@ yarn test
 yarn test:cov
 ```
 
+### Test at docker container
+
+```bash
+sudo docker compose up backend -d
+
+sudo docker exec tla-backend yarn test:cov
+
+sudo docker compose stop backend
+```
+
 ## Access at
 
 `http://localhost:8080/api/<method>` or `http://127.0.0.1:8080/api/<method>`
@@ -62,6 +64,10 @@ yarn test:cov
 ### Component diagram
 
 ![architecture](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/async-devil/todo-list-app-template/master/docs/architecture.puml)
+
+### Dtos
+
+![structs](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/async-devil/todo-list-app-template/master/docs/structs.puml)
 
 ### Sequence diagram
 
