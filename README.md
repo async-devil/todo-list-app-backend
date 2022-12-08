@@ -65,9 +65,9 @@ sudo docker compose stop backend
 
 ![architecture](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/async-devil/todo-list-app-template/master/docs/architecture.puml)
 
-### Dtos
+### REST API Schema
 
-![structs](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/async-devil/todo-list-app-template/master/docs/structs.puml)
+![rest-api](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/async-devil/todo-list-app-template/master/docs/rest-api.puml)
 
 ### Sequence diagram
 
